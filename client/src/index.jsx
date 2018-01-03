@@ -10,12 +10,13 @@ class App extends React.Component {
     this.state = { 
       repos: []
     }
-
   }
 
-  search (term) {
+  search(term) {
     console.log(`${term} was searched`);
-    // TODO
+    $.post('/repos', {username: term}, function(data) {
+      console.log('post to /repos...', data);
+    });
   }
 
   render () {
