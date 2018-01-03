@@ -1,0 +1,13 @@
+h1 {
+  font-family: sans-serif
+}
+
+.repo {
+  border: 1px solid black
+}
+
+a {
+  display: inline;
+  margin-right: 1em;
+}
+

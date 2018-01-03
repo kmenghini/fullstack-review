@@ -12,18 +12,26 @@ class App extends React.Component {
     }
   }
 
+  componentDidMount(){
+    $.get('/repos', (data) => {
+      this.setState({
+        repos: data
+      })
+    })
+  }
+
   search(term) {
     console.log(`${term} was searched`);
     $.post('/repos', {username: term}, function(data) {
-      console.log('post to /repos...', data);
+      console.log(data);
     });
   }
 
   render () {
     return (<div>
       <h1>Github Fetcher</h1>
-      <RepoList repos={this.state.repos}/>
       <Search onSearch={this.search.bind(this)}/>
+      <RepoList repos={this.state.repos}/>
     </div>)
   }
 }
