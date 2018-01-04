@@ -13,7 +13,6 @@ const RepoList = ({repos}) => (
         ))
       }
     </div>
- 
   </div>
 )
 

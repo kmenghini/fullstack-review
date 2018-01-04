@@ -13,18 +13,23 @@ class App extends React.Component {
   }
 
   componentDidMount(){
+    this.getRepos();
+  }
+
+  search(term) {
+    console.log(`${term} was searched`);
+    $.post('/repos', {username: term}, (data) => {
+      console.log(data);
+      this.getRepos();
+    });
+  }
+
+  getRepos() {
     $.get('/repos', (data) => {
       this.setState({
         repos: data
       })
     })
-  }
-
-  search(term) {
-    console.log(`${term} was searched`);
-    $.post('/repos', {username: term}, function(data) {
-      console.log(data);
-    });
   }
 
   render () {

@@ -11,12 +11,11 @@ app.use(bodyParser.urlencoded());
 app.post('/repos', function (req, res) {
   reposRequest.getReposByUsername(req.body.username, (data) => {
     db.save(data);
+    res.send('successfully added to database');    
   });
-  res.send('successfully added to database');
 });
 
 app.get('/repos', function (req, res) {
-  console.log('in get request')
   db.sendTopRepos(function(repoArr) {
     res.send(repoArr);
   });
