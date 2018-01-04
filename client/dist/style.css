@@ -3,7 +3,10 @@ h1 {
 }
 
 .repo {
-  border: 1px solid black
+  background-color: rgb(231, 231, 231);
+  border: 1px solid;
+  margin: 5px;
+  padding: 5px;
 }
 
 a {
